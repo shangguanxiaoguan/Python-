@@ -29,6 +29,17 @@ name_list.extend(temp_list)
 
 print(name_list)
 
+
+"""
+append()和extend()的区别：
+"""
+t_list = [1, 2]
+t_list.extend([3, 4])
+print(t_list)   # [1, 2, 3, 4]   把3,4依次插入列表中
+t_list.append([5, 6])
+print(t_list)     # #[1, 2, 3, 4, [5, 6]]  把[5,6]作为一个元素插入列表中
+
+
 # 3.删除
 # remove 方法可以从列表中删除指定的数据
 name_list.remove("lisi")
