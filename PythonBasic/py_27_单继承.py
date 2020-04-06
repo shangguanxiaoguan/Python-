@@ -10,6 +10,9 @@
   Dog类是Animal类的子类，Animal类是DOg类的父类，Dog类从Animal类继承
   Dog类是Animal类的派生类，Animal类是Dog类的基类，Dog类从Animal类派生
 
+5.继承的传递性
+  子类拥有父类以及父类的父类中封装的所有属性和方法
+
 """
 
 
@@ -26,7 +29,7 @@ class Animal:
     def sleep(self):
         print("睡")
 
-
+# Dog类继承自Animal类
 class Dog(Animal):
     # def eat(self):
     #     print("吃")
@@ -44,6 +47,12 @@ class Dog(Animal):
         print("叫")
 
 
+# XiaoTianQuan类继承自Dog类
+class XiaoTianQuan(Dog):
+    def fly(self):
+        print("我会飞")
+
+
 # 创建对象
 # wangcai = Animal()
 wangcai = Dog()
@@ -53,5 +62,8 @@ wangcai.run()
 wangcai.sleep()
 wangcai.bark()
 
-# 第33节
-
+# 第33节  继承的传递性
+xtq = XiaoTianQuan()
+xtq.fly()
+xtq.bark()
+xtq.sleep()
