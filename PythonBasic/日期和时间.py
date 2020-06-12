@@ -53,3 +53,53 @@ str = fo.read(5)
 print("读取的字符串是：", str)
 fo.close()
 
+
+"""
+文件定位
+"""
+
+#  定位文件当前位置
+fo = open("foo.txt", "r+")
+fo.write("hahahahhenenf")
+fo.close()
+fo = open("foo.txt", "r")
+line = fo.readline()
+print("读取的数据为：%s" % line)
+position = fo.tell()   # ??
+print("当前文件位置：", position)
+fo.close()
+
+# 把指针重新定位到文件开头
+fo = open("foo.txt", "r")
+position = fo.seek(0, 0)
+str = fo.read(5)
+print("重新读取字符串：", str)
+fo.close()
+
+"""
+重命名和删除文件
+"""
+import os
+# 重命名文件名
+os.rename("test1.txt", "test2.txt") # 前面的为当前文件名   后面的为新文件名
+
+# 删除文件 remove()
+
+# 创建目录
+os.mkdir("test")
+
+import mysql.connector
+print("打开数据库连接")
+# 打开数据库连接
+cnn = mysql.connector.connect(user='dingtone',passwd='Dingtone@567',database='dev-dingtone-master.cbnf6oyv0yng.us-west-1.rds.amazonaws.com')
+
+# 使用cursor()方法获取操作游标
+cursor = cnn.cursor()
+
+# 使用execute()方法执行SQL语句
+cursor.execute("select version()")
+
+data = cursor.fetchone()
+print("Database version : %s" % data)
+
+cnn.close()
