@@ -5,6 +5,20 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from appium.webdriver.common.mobileby import MobileBy
 
+
+"""
+TouchAction类具备的方法
+短按：press
+长按：longPress
+点击：tap
+移动到：move_to
+等待：wait
+释放：release   【注意，长按和短按后，移动要使用release释放掉。】
+执行：perform
+取消：cancel
+"""
+
+
 desired_caps = {
     'platformName': 'Android',
     'deviceName': '3584d0d8',

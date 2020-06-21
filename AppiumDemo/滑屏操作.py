@@ -1,3 +1,5 @@
+import time
+
 from appium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -10,10 +12,17 @@ desired_caps = {
     'appPackage': 'free.vpn.unblock.proxy.vpnforce',
     'appActivity': 'com.force.vpn.app.ui.activity.VpnForceSplashActivity',
     'unicodeKeyboard': True,   # 使用Unicode编码方式发送字符串
-    'resetKeyboard': True      #  隐藏键盘
+    'resetKeyboard': True,      # 隐藏键盘
+    'onReset': True   # APP缓存不重置   这种方式可以跳过启动页
 }
+
+
 # 连接appium服务器
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
+
+# 滑屏之前先等待界面加载完成
+loc = (MobileBy.ANDROID_UIAUTOMATOR, 'new UiSelector().text("FAQS")')
+WebDriverWait(driver, 30).until(EC.visibility_of_element_located(loc))
 
 """
 以下操作不分Android和IOS系统，可封装起来后续调用
@@ -36,6 +45,9 @@ end_y = size["height"] * 0.5   # 因为用户操作习惯都在中间，所以取0.5
 
 # 从右向左滑
 driver.swipe(start_x, start_y, end_x, end_y)
+time.sleep(2)   # 连续滑动
+driver.swipe(start_x, start_y, end_x, end_y)
+
 
 # 从左向右滑
 driver.swipe(end_x, end_y, start_x, start_y)
