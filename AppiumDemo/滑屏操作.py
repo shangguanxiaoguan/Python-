@@ -1,4 +1,7 @@
+# encoding = gbk
+
 import time
+from cgi import log
 
 from appium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
@@ -9,55 +12,63 @@ desired_caps = {
     'platformName': 'Android',
     'deviceName': '3584d0d8',
     'platformVersion': '5.1.1',
-    'appPackage': 'free.vpn.unblock.proxy.vpnforce',
-    'appActivity': 'com.force.vpn.app.ui.activity.VpnForceSplashActivity',
-    'unicodeKeyboard': True,   # Ê¹ÓÃUnicode±àÂë·½Ê½·¢ËÍ×Ö·û´®
-    'resetKeyboard': True,      # Òş²Ø¼üÅÌ
-    'onReset': True   # APP»º´æ²»ÖØÖÃ   ÕâÖÖ·½Ê½¿ÉÒÔÌø¹ıÆô¶¯Ò³
+    'appPackage': 'me.bitvpn.app',
+    'appActivity': 'skyvpn.ui.activity.BitSplashActivity'
 }
 
 
-# Á¬½Óappium·şÎñÆ÷
+# 'appActivity': 'com.force.vpn.app.ui.activity.VpnForceSplashActivity',
+# 'unicodeKeyboard': True,   # ä½¿ç”¨Unicodeç¼–ç æ–¹å¼å‘é€å­—ç¬¦ä¸²
+# 'resetKeyboard': True,      # éšè—é”®ç›˜
+# 'onReset': True   # APPç¼“å­˜ä¸é‡ç½®   è¿™ç§æ–¹å¼å¯ä»¥è·³è¿‡å¯åŠ¨é¡µ
+
+# è¿æ¥appiumæœåŠ¡å™¨
 driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
 
-# »¬ÆÁÖ®Ç°ÏÈµÈ´ı½çÃæ¼ÓÔØÍê³É
-loc = (MobileBy.ANDROID_UIAUTOMATOR, 'new UiSelector().text("FAQS")')
-WebDriverWait(driver, 30).until(EC.visibility_of_element_located(loc))
+# æ»‘å±ä¹‹å‰å…ˆç­‰å¾…ç•Œé¢åŠ è½½å®Œæˆ
+# loc = (MobileBy.ANDROID_UIAUTOMATOR, 'new UiSelector().id("me.bitvpn.app:id/free_trial_guide_start")')
+# WebDriverWait(driver, 30).until(EC.visibility_of_element_located(loc))
+print("------==============================")
+# time.sleep(100)
 
 """
-ÒÔÏÂ²Ù×÷²»·ÖAndroidºÍIOSÏµÍ³£¬¿É·â×°ÆğÀ´ºóĞøµ÷ÓÃ
+ä»¥ä¸‹æ“ä½œä¸åˆ†Androidå’ŒIOSç³»ç»Ÿï¼Œå¯å°è£…èµ·æ¥åç»­è°ƒç”¨
 """
-
-# »ñÈ¡ÆÁÄ»µÄ¸ß¶ÈºÍ¿í¶È height¡¢width
+print("-----------------------")
+# è·å–å±å¹•çš„é«˜åº¦å’Œå®½åº¦ heightã€width
 size = driver.get_window_size()
+print("screen sizeï¼š" + int(size["width"]) + int(size["height"]))
 
-# ÆğÊ¼Î»ÖÃ
+# èµ·å§‹ä½ç½®
 start_x = size["width"] * 0.9
+print(int(start_x))
+
+
 start_y = size["height"] * 0.5
 
-# ÖÕÖ¹Î»ÖÃ
+# ç»ˆæ­¢ä½ç½®
 end_x = size["width"] * 0.1
-end_y = size["height"] * 0.5   # ÒòÎªÓÃ»§²Ù×÷Ï°¹ß¶¼ÔÚÖĞ¼ä£¬ËùÒÔÈ¡0.5
+end_y = size["height"] * 0.5   # å› ä¸ºç”¨æˆ·æ“ä½œä¹ æƒ¯éƒ½åœ¨ä¸­é—´ï¼Œæ‰€ä»¥å–0.5
 
 """
-×óÓÒ»¬¶¯£ºYÖá²»¶¯£¬XÖá×óÓÒÒÆ¶¯
+å·¦å³æ»‘åŠ¨ï¼šYè½´ä¸åŠ¨ï¼ŒXè½´å·¦å³ç§»åŠ¨
 """
 
-# ´ÓÓÒÏò×ó»¬
+# ä»å³å‘å·¦æ»‘
 driver.swipe(start_x, start_y, end_x, end_y)
-time.sleep(2)   # Á¬Ğø»¬¶¯
+time.sleep(2)   # è¿ç»­æ»‘åŠ¨
 driver.swipe(start_x, start_y, end_x, end_y)
 
 
-# ´Ó×óÏòÓÒ»¬
-driver.swipe(end_x, end_y, start_x, start_y)
+# ä»å·¦å‘å³æ»‘
+# driver.swipe(end_x, end_y, start_x, start_y)
 
 """
-ÉÏÏÂ»¬¶¯£ºXÖá²»¶¯£¬YÖáÉÏÏÂÒÆ¶¯
+ä¸Šä¸‹æ»‘åŠ¨ï¼šXè½´ä¸åŠ¨ï¼ŒYè½´ä¸Šä¸‹ç§»åŠ¨
 """
 
-# ÏòÉÏ»¬¶¯£¬´ÓÏÂÍùÉÏ»¬
-driver.swipe(size["width"] * 0.5, size["height"] * 0.9, size["width"] * 0.5, size["height"] * 0.1)
+# å‘ä¸Šæ»‘åŠ¨ï¼Œä»ä¸‹å¾€ä¸Šæ»‘
+# driver.swipe(size["width"] * 0.5, size["height"] * 0.9, size["width"] * 0.5, size["height"] * 0.1)
 
-# ÏòÏÂ»¬¶¯£¬´ÓÉÏÍùÉÏ»¬
-driver.swipe(size["width"] * 0.5, size["height"] * 0.1, size["width"] * 0.5, size["height"] * 0.9)
+# å‘ä¸‹æ»‘åŠ¨ï¼Œä»ä¸Šå¾€ä¸Šæ»‘
+# driver.swipe(size["width"] * 0.5, size["height"] * 0.1, size["width"] * 0.5, size["height"] * 0.9)
