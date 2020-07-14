@@ -29,5 +29,6 @@ def LoginForGet(request):
         result = json.dumps(result, content_type='application/json;charset=utf-8')
         return HttpResponse(result)
     else:
-        return render(request, 'login.html', context={'foo': 'bar'})
+        context = {'foo': 'bar'}
+        return render(request, 'login.html', context)
 
