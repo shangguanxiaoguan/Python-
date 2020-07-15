@@ -12,6 +12,7 @@ from django.shortcuts import render
 def LoginForPost(request):
     if request.method == 'POST':
         username = request.POST.get('username')
+        print(username)
         return HttpResponse(username)
     else:
         return render(request, 'login.html', context={'foo': 'bar'})
