@@ -2,12 +2,17 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/AppiumDemo/滑屏操作.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/DjangoTest/case/byhypytest/test_login.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/DjangoTest/common/数据库连接.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/DjangoTest/config/sql_conf.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DjangoTest/requeststest/conftest.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DjangoTest/requeststest/get.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/DjangoTest/requeststest/https证书.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DjangoTest/requeststest/post.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DjangoTest/requeststest/pytest_demo.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DjangoTest/requeststest/pytest_demo2.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DjangoTest/requeststest/unittest_demo.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/DjangoTest/requeststest/动态关联json格式.py" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
   </component>
 </project>

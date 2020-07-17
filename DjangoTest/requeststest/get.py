@@ -14,6 +14,7 @@ class RunMain:
 
     def send_get(self, url, data):
         res = requests.get(url=url, data=data)
+        # res = requests.get(url=url, data=data, cookies=cookies)
 
         return res
         # res = requests.get(url=url, data=data).json()
@@ -57,5 +58,6 @@ if __name__ == '__main__':
     # 请求方式的传入要确认好，不然会报400
     run = RunMain(url, 'POST', data)
     res = run.run_main(url, 'POST', data)
+    # res.text.encode('utf-8').decode('unicode_escape')  # 先把返回结果转换成utf-8，再去解码成中文的编码
     print(json.loads(res))
 

@@ -9,8 +9,11 @@ import requests
 url = 'http://54.241.21.249:8089/skyvpn/v2/invite/getUrl?' \
       'userId=7393118869613203&deviceId=And.3cfdbb3b0287b0fed79432dcd50b9de7.fvpn&types=3&' \
       'token=d60862e5cb47119b260f20ccafb03e75&timestamp=1590382152623&sign=86BDF442174FFD02F38C88E81CA83D8C'
+cookies = {
+      'sessionId': 'd60862sdde5cb47119b260f20ccafb03e75'
+}
 # res = requests.get(url='http://127.0.0.1:8000/logingforpost', data=data)
-res = requests.get(url=url)
+res = requests.post(url=url, cookies=cookies)
 # print(res.json())
 # print(res)
 response = res.text
