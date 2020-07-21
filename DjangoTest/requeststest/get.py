@@ -38,9 +38,9 @@ class RunMain:
 
 
 if __name__ == '__main__':
-    # url = 'http://127.0.0.1:8000/logingforpost'
+    url = 'http://127.0.0.1:8000/logingforpost'
     #
-    url = 'http://54.241.21.249:8089/skyvpn/v2/invite/getUrl'
+
     data = {
         "userId": "7393118869613203",
         "deviceId": "And.3cfdbb3b0287b0fed79432dcd50b9de7.fvpn",
