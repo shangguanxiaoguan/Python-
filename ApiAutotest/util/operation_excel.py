@@ -44,7 +44,7 @@ class OperationExcel:
         return tables.nrows
 
     # 获取某一个单元格的内容
-    def get_cell_value(self,row, col):
+    def get_cell_value(self, row, col):
         tables = self.data
         return tables.cell_value(row, col)
 
