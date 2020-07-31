@@ -5,7 +5,7 @@ from config.sql_conf import sql_conf
 
 def get_sql(sql):
     # 建立一个连接对象
-    # host,user,password,database,port,charset='127.0.0.1','root','root','test',3306,'utf-8'
+    # host,user,password,database,port,charset='127.0.0.1','root','root','Test',3306,'utf-8'
     host,user,password,database,port,charset=sql_conf()
     print(host)
     db = pymysql.connect(host=host, user=user, password=password, database=database, port=port, charset=charset)

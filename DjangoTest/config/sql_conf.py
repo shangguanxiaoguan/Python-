@@ -6,7 +6,7 @@ def server_ip():
     '''
     dev_ip ='http://127.0.0.1:8000'  # 开发环境ip
 
-    sit_ip = 'http://106.12.126.197:8000'  # 测试环境ip
+    sit_ip = 'http://100.0.0.1:8000'  # 测试环境ip
 
     return sit_ip
 
@@ -19,7 +19,7 @@ def sql_conf():
     host = '127.0.0.1'
     user = 'root'
     password = 'root'
-    database = 'test'
+    database = 'Test'
     port = 3306
     charset = 'utf8'   # 【注意】是utf8不是utf-8，否则会报错：AttributeError: 'NoneType' object has no attribute 'encoding'
 

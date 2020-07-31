@@ -1,6 +1,6 @@
 class A:
     def test(self):
-        print("test 方法")
+        print("Test 方法")
 
 
 class B:
@@ -17,7 +17,7 @@ class C(A, B):
 
 # 创建子类对象
 # c = C()
-# c.test()
+# c.Test()
 # c.demo()
 
 """
@@ -28,7 +28,7 @@ Python中的MRO方法 ——方法搜索顺序
 
 class A:
     def test(self):
-        print("A-- test 方法")
+        print("A-- Test 方法")
 
     def demo(self):
         print("A-- demo方法")

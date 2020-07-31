@@ -3,7 +3,7 @@ import json
 import requests
 
 # data = {
-#     'username': 'test',
+#     'username': 'Test',
 #     'password': '123456'
 # }
 url = 'http://54.241.21.249:8089/skyvpn/v2/invite/getUrl?' \
@@ -27,7 +27,7 @@ print(response)
 #
 # url='http://127.0.0.1:8000/logingforpost'
 # data = {
-#     'username': 'test',
+#     'username': 'Test',
 #     'password': '123456'
 # }
 #

@@ -86,7 +86,7 @@ os.rename("test1.txt", "test2.txt") # 前面的为当前文件名   后面的为
 # 删除文件 remove()
 
 # 创建目录
-os.mkdir("test")
+os.mkdir("Test")
 
 import mysql.connector
 print("打开数据库连接")

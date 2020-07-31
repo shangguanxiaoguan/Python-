@@ -59,7 +59,7 @@ class Test_Demo:
     def test_C001001(self):
         print('\n用例C001001')
         global cookies   # 定义全局变量
-        cookies = 'test'
+        cookies = 'Test'
         assert 1 == 1
 
     @pytest.mark.smoke

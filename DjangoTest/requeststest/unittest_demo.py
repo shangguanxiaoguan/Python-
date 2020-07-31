@@ -13,11 +13,11 @@ class TestMethod(unittest.TestCase):
 
     # 每次方法之前执行
     def setUp(self):
-        print("test-----setUp")
+        print("Test-----setUp")
 
     # 每次方法之后执行
     def tearDown(self):
-        print("test----tearDown")
+        print("Test----tearDown")
 
     def test_01(self):
         print("这是第一个测试方法")
