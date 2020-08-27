@@ -6,7 +6,10 @@
     <file url="file://$PROJECT_DIR$/ApiAutotest/util/operation_excel.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ApiAutotest/util/operation_json.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/AppiumDemo/滑屏操作.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Demo/Test/aes_cbc_encrypt_.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Demo/Test/aes_test.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Demo/Test/fuction_test.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Demo/Test/go_encode.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DjangoTest/case/byhypytest/test_login.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DjangoTest/common/数据库连接.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DjangoTest/config/sql_conf.py" charset="UTF-8" />
@@ -20,6 +23,8 @@
     <file url="file://$PROJECT_DIR$/DjangoTest/requeststest/unittest_demo.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/DjangoTest/requeststest/动态关联json格式.py" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/data/data_config.py" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/requirements.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/tengzhan/Bitvpn/test_point.py" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
   </component>
 </project>
