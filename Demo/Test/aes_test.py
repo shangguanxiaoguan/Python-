@@ -1,17 +1,42 @@
+
 from Crypto.Cipher import AES
-import base64
+from binascii import b2a_hex, a2b_hex
 
-# import AES as AES
-# import AES as AES
 
-password = '1234567890123456' #秘钥
-text = '1234567890123456' #需要加密的内容
-model = AES.MODE_ECB #定义模式
-aes = AES.new(password, model) #创建一个aes对象
+# 如果text不足16位的倍数就用空格补足为16位
+def add_to_16(text):
+    if len(text.encode('utf-8')) % 16:
+        add = 16 - (len(text.encode('utf-8')) % 16)
+    else:
+        add = 0
+    text = text + ('\0' * add)
+    return text.encode('utf-8')
 
-en_text = aes.encrypt(text) #加密明文
-print(en_text)
-en_text = base64.encodebytes(en_text) #将返回的字节型数据转进行base64编码
-print(en_text)
-en_text = en_text.decode('utf8') #将字节型数据转换成python中的字符串类型
-print(en_text.strip())
+
+# 加密函数
+def encrypt(text):
+    key = '9999999999999999'.encode('utf-8')
+    mode = AES.MODE_CBC
+    iv = b'qqqqqqqqqqqqqqqq'
+    text = add_to_16(text)
+    cryptos = AES.new(key, mode, iv)
+    cipher_text = cryptos.encrypt(text)
+    # 因为AES加密后的字符串不一定是ascii字符集的，输出保存可能存在问题，所以这里转为16进制字符串
+    return b2a_hex(cipher_text)
+
+
+# 解密后，去掉补足的空格用strip() 去掉
+def decrypt(text):
+    key = '9999999999999999'.encode('utf-8')
+    iv = b'qqqqqqqqqqqqqqqq'
+    mode = AES.MODE_CBC
+    cryptos = AES.new(key, mode, iv)
+    plain_text = cryptos.decrypt(a2b_hex(text))
+    return bytes.decode(plain_text).rstrip('\0')
+
+
+if __name__ == '__main__':
+    e = encrypt("hello world")  # 加密
+    d = decrypt(e)  # 解密
+    print("加密:", e)
+    print("解密:", d)

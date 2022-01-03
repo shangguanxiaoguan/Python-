@@ -3,18 +3,18 @@ from ApiAutotest.util.operation_json import OperationJson
 from data import data_config
 
 """
-封装获取接口数据
+灏佽鑾峰彇鎺ュ彛鏁版嵁
 """
 
 class GetData:
     def __init__(self):
         self.opera_excel = OperationExcel()
 
-    # 去获取excel行数，就是我们的case个数
+    # 鍘昏幏鍙杄xcel琛屾暟锛屽氨鏄垜浠殑case涓暟
     def get_case_lines(self):
         return  self.opera_excel.get_lines()
 
-    # 获取是否执行
+    # 鑾峰彇鏄惁鎵ц
     def get_is_run(self, row):
         flag = None
         col = int(data_config.get_run())
@@ -25,7 +25,7 @@ class GetData:
             flag = False
         return flag
 
-    # 是否携带header
+    # 鏄惁鎼哄甫header
     def is_header(self, row):
         col = data_config.get_header_value()
         if col != None:
@@ -36,19 +36,19 @@ class GetData:
         else:
             return None
 
-    # 获取请求方式
+    # 鑾峰彇璇锋眰鏂瑰紡
     def get_request_method(self, row):
         col = int(data_config.get_request_way())
         request_method = self.opera_excel.get_cell_value(row, col)
         return request_method
 
-    # 获取url
+    # 鑾峰彇url
     def get_url(self, row):
         col = int(data_config.get_url())
         url = self.opera_excel.get_cell_value(row, col)
         return url
 
-    # 获取请求数据
+    # 鑾峰彇璇锋眰鏁版嵁
     def get_request_data(self, row):
         col = int(data_config.get_data())
         data = self.opera_excel.get_cell_value(row, col)
@@ -56,13 +56,13 @@ class GetData:
             data = None
         return data
 
-    # 通过获取关键字拿到data数据
+    # 閫氳繃鑾峰彇鍏抽敭瀛楁嬁鍒癲ata鏁版嵁
     def get_data_from_json(self, row):
         opera_json = OperationJson()
         request_data = opera_json.get_data(self.get_request_data(row))
         return request_data
 
-    # 获取预期结果
+    # 鑾峰彇棰勬湡缁撴灉
     def get_expect_data(self, row):
         col = int(data_config.get_expect())
         expect = self.opera_excel.get_cell_value(row, col)

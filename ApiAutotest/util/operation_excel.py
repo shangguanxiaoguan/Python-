@@ -1,3 +1,5 @@
+
+
 import xlrd
 
 # data = xlrd.open_workbook('../ApiAutotest/dataconfig/case1.xls', 'rb')
@@ -5,6 +7,7 @@ import xlrd
 # tables = data.sheets()[0]
 # print(tables.nrows)
 # print(tables.cell_value(2, 4))
+from xlutils.copy import copy
 
 """
 封装操作excel函数
@@ -23,7 +26,8 @@ class OperationExcel:
             self.file_name = file_name
             self.sheet_id = sheet_id
         else:
-            self.file_name = 'F:\\GuanHuaJin\\PythonAutoTest\\Python-\\ApiAutotest\\dataconfig\\case1.xls'
+            # self.file_name = 'F:\\GuanHuaJin\\PythonAutoTest\\Python-\\ApiAutotest\\dataconfig\\case1.xls'
+            self.file_name = '../dataconfig/case1.xls'
             self.sheet_id = 0
         self.data = self.get_data()
 
@@ -47,6 +51,21 @@ class OperationExcel:
     def get_cell_value(self, row, col):
         tables = self.data
         return tables.cell_value(row, col)
+
+    # 写入数据
+    def write_value(self, row, col, value):
+        '''
+        写入Excel数据
+        :param row:
+        :param col:
+        :param value:
+        :return:
+        '''
+        read_data = xlrd.open_workbook(self.file_name)
+        write_data = copy(read_data)
+        sheet_data = write_data.get_sheet(0)
+        sheet_data.write(row, col, value)
+        write_data.save(self.file_name)
 
 
 if __name__ == '__main__':
