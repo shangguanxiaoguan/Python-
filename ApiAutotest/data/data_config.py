@@ -1,5 +1,6 @@
+# -*- coding:utf-8 -*-
 """
-7-6：封装获取常量的方法
+7-6?????????????????
 """
 
 
@@ -19,12 +20,12 @@ class global_var:
     result = '11'
 
 
-# 获取caseid
+# ???caseid
 def get_id():
     global_var.Id
 
 
-# 获取url
+# ???url
 def get_url():
     return global_var.url
 
